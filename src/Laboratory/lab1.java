@@ -21,22 +21,22 @@ public class lab1
 	do 
 	{
 		System.out.print
-		("1 - Жагсаалтад тоо нэмэх "
-				+ "\n2 - Жагсаалтыг харах"
-				+ "\n3 - Жагсаалтыг санамсаргүй тоогоор дүүргэх"
-				+ "\n4 - Жагсаалтаас тоо хасах"
-				+ "\n5 - Жагсаалтыг багаас их рүү эрэмбэлнэ"
-				+ "\n6 - Жагсаалтыг ихээс бага руу эрэмбэлнэ"
-				+ "\n0 - Дуусгах"
+		("1 - Jagsaaltad too nemeh "
+				+ "\n2 - Jagsaaltig harah"
+				+ "\n3 - Jagsaaltig sanamsargui toogoor duurgeh"
+				+ "\n4 - Jagsaaltaas too hasah"
+				+ "\n5 - Jagsaaltig bagaas ih ruu erembelne"
+				+ "\n6 - Jagsaaltig ihees baga ruu erembelne"
+				+ "\n0 - Duusgah"
 				+ "\n ------------------------------------------- \n");
 		Scanner s1 = new Scanner(System.in);
 		function = s1.nextInt();
 		if(function== 1) 
 		{
-			System.out.print("Жагсаалтад хэдэн тоо нэмэх вэ? \n ------------------------------------------- \n");
+			System.out.print("Jagsaaltad heden too nemeh ve? \n ------------------------------------------- \n");
 			Scanner s4 = new Scanner(System.in);
 			int addcon = s4.nextInt();
-			System.out.print("Жагсаалтад нэмэх дурын " + addcon + " тоогоо оруулна уу\n ------------------------------------------- \n");
+			System.out.print("Jagsaaltad nemeh durin " + addcon + " toogoo oruulna uu\n ------------------------------------------- \n");
 			for(int i=0; i<addcon; i++) 
 			{
 				Scanner s2 = new Scanner(System.in);
@@ -46,29 +46,29 @@ public class lab1
 		}
 		else if(function == 2) 
 		{
-			System.out.print("Жагсаалт: \n");
+			System.out.print("Jagsaalt: \n");
 			System.out.println(Arrays.toString(list.toArray()));
 			System.out.print("\n ------------------------------------------- \n");
 		}
 		else if(function == 3) 
 		{
-			System.out.print("Жагсаалтад хэдэн тоо нэмэх вэ? \n ------------------------------------------- \n");
+			System.out.print("Jagsaaltad heden too nemeh ve \n ------------------------------------------- \n");
 			Scanner s5 = new Scanner(System.in);
 			int randomcon = s5.nextInt();
 			for(int i=0; i<randomcon; i++) 
 			{				
 				list.add((int)(Math.random()* 10));
 			}
-			System.out.print("Жагсаалтад " + randomcon + " ширхэг санамсаргүй тоо нэмлээ \n ------------------------------------------- \n");
+			System.out.print("Jagsaaltad " + randomcon + " shirher sanamsargui too nemegdlee \n ------------------------------------------- \n");
 		}
 		else if(function == 4) 
 		{
-			System.out.print("Жагсаалтас устгах тоогоо оруулна уу \n");
+			System.out.print("Jagsaaltaas hasah toogoo oruulna uu \n");
 			Scanner s3 = new Scanner(System.in);
 			int del = s3.nextInt();
 			int pos = list.indexOf(del);
 			list.remove(pos);
-			System.out.print("Жагсаалтаас " + del +" тоо устгагдлаа \n ------------------------------------------- \n");
+			System.out.print("Jagsaaltaas " + del +" too ustgagdlaa \n ------------------------------------------- \n");
 		}
 		else if(function == 5) 
 		{
@@ -77,7 +77,7 @@ public class lab1
 	        {
 	            list.get(i);
 	        }
-			System.out.print("Жагсаалт багаас их рүү эрэмбэлэгдлээ: \n");
+			System.out.print("Jagsaalt bagaas ih ruu erembelegdlee: \n");
 			System.out.println(Arrays.toString(list.toArray()));
 			System.out.print("\n ------------------------------------------- \n");
 		}
@@ -88,7 +88,7 @@ public class lab1
 	        {
 	            list.get(i);
 	        }
-			System.out.print("Жагсаалт ихээс багаруу эрэмбэлэгдлээ: \n");
+			System.out.print("Jagsaalt ihees baga ruu erembelegdlee: \n");
 			System.out.println(Arrays.toString(list.toArray()));
 			System.out.print("\n ------------------------------------------- \n");
 		}
