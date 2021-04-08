@@ -23,7 +23,7 @@ public class InvalidGradeException extends Exception
 		System.out.print("Invalid point. Please insert point between 0 - 100");
 	}
 	
-	public static boolean numChecker(int point) 
+	public static boolean pointCheck(int point) 
 	{
 		boolean error = false;
 		if(point <0 || point > 100)

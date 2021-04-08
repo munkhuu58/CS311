@@ -5,43 +5,29 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
-/** 
- * A GradeManager will create a command-line prompt that will let someone add grades
- * and display grades in histogram format.
- * 
- */
-
 public class GradeManager 
 {
 	
-	// Keeps track of the number of each grade this has
 	private HashMap<LetterGrade, String> allGrades;
 	int size=1,size1=1,size2=1,size3=1,size4=1;
-	/**
-	 * Creates a new GradeManager.
-	 */
+
 	public GradeManager() 
 	{
-		// Create a new HashMap of the grades
 		this.allGrades = new HashMap<LetterGrade,String>();
 		
-		// Add in all grades and set the occurance to 0
 		for (LetterGrade gl : LetterGrade.values()) 
 		{
 			allGrades.put(gl, "");
 		}
 	}
 		
-	/**
-	 * Adds grade to this GradeManager.
-	 * @param grade - grade to add to this grad manager
-	 */
 	public void addGrade(String grade, String point) throws InvalidGradeException 
 	{
 		int intPoint = Integer.parseInt(point);
-		boolean numErr = InvalidGradeException.numChecker(intPoint);
+		boolean pointError = InvalidGradeException.pointCheck(intPoint);
 		StringBuffer points = new StringBuffer();
-		if(numErr) {
+		if(pointError) 
+		{
 			throw new InvalidGradeException(intPoint);
 		}
 		if (grade.equals("a")) 
@@ -71,14 +57,8 @@ public class GradeManager
 		} 
 		else throw new InvalidGradeException(grade);
 		
-		// TODO: Add more cases in here
-		
-		// If grade doesn't match a valid grade, throw an InvalidGradeException
 	}
-	/**
-	 * Prints out a histogram of the grades to the console.
-	 *
-	 */
+
 	public void printHistogram() 
 	{
 		try 
@@ -91,10 +71,6 @@ public class GradeManager
 		}		
 	}
 	
-	/**
-	 * Returns a string representation of the histogram of the grades.
-	 * @return a string representation of the histogram of the grades.
-	 */
 	public String getHistString() 
 	{
 		StringBuffer sb = new StringBuffer();
@@ -106,20 +82,15 @@ public class GradeManager
 		return sb.toString();
 	}
 
-	/**
-	 * Simple loop that accepts 3 commands from System.in:
-	 *    add <some grade> : for example, "add a" or "add b"
-	 *                       adds the given grade to the GradeManager
-	 *    print            : prints out all the grades in this GradeManager
-	 *                       in a histogram format
-	 *    exit             : exits the program
-	 * @param args
-	 * @throws IOException 
-	 * @throws InvalidInputException 
-	 */
 	public static void main(String[]  args) throws IOException, InvalidGradeException, InvalidInputException
 	{
-		System.out.print("Available input: \n To add grade: add 'grade' 'point' \n To print grades: print \n To exit: exit \n\n Starting the grade manager \n");
+		System.out.print("Available input: "
+				+ "\n To add grade: add 'grade' 'point' \n Available Grade and Points "
+				+ "\n A | 90 - 100 \n B | 80 - 89 \n C | 70 - 79 \n D | 60 - 69 \n F | 00 - 59 \n"
+				+ " To print grades: print"
+				+ "\n To see example: example"
+				+ "\n To exit: exit \n"
+				+ "\n Starting the grade manager \n");
 		GradeManager gm = new GradeManager();		
 		BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
 		try 
@@ -135,7 +106,14 @@ public class GradeManager
 				else if (input.equals("print")) 
 				{
 					gm.printHistogram();
-				}  
+				}
+				else if (input.equals("example")) 
+				{
+					System.out.print("Example: \n "
+							+ "add a 90 \n"
+							+ " add b 89 \n"
+							+ " print \n exit");
+				}
 				else if (input.equals("exit")) 
 				{
 					break;
