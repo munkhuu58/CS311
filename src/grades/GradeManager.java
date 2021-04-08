@@ -38,7 +38,12 @@ public class GradeManager
 	 */
 	public void addGrade(String grade, String point) throws InvalidGradeException 
 	{
+		int intPoint = Integer.parseInt(point);
+		boolean numErr = InvalidGradeException.numChecker(intPoint);
 		StringBuffer points = new StringBuffer();
+		if(numErr) {
+			throw new InvalidGradeException(intPoint);
+		}
 		if (grade.equals("a")) 
 		{
 			points.append(allGrades.get(LetterGrade.A)+" "+ point);
@@ -64,7 +69,7 @@ public class GradeManager
 			points.append(allGrades.get(LetterGrade.F)+" "+ point);
 			allGrades.put(LetterGrade.F,points.toString());			
 		} 
-		else throw new InvalidGradeException();
+		else throw new InvalidGradeException(grade);
 		
 		// TODO: Add more cases in here
 		
