@@ -12,11 +12,12 @@ import java.util.List;
  * @author Yukino
  *
  */
-public class lab1 
+public class lab1<T>
 {
-	public static void main(String[] args) 
+	@SuppressWarnings("unchecked")
+	public void main(String[] args) 
 	{
-	List<Integer> list = new ArrayList();
+	List<T> list = new ArrayList();
 	int function;
 	do 
 	{
@@ -40,7 +41,7 @@ public class lab1
 			for(int i=0; i<addcon; i++) 
 			{
 				Scanner s2 = new Scanner(System.in);
-				int add = s2.nextInt();
+				T add = (T) s2.nextLine();
 				list.add(add);
 			}
 		}
@@ -55,9 +56,9 @@ public class lab1
 			System.out.print("Jagsaaltad heden too nemeh ve \n ------------------------------------------- \n");
 			Scanner s5 = new Scanner(System.in);
 			int randomcon = s5.nextInt();
-			for(int i=0; i<randomcon; i++) 
+			for(int i=0; i<randomcon; i++)
 			{				
-				list.add((int)(Math.random()* 10));
+				list.add((int)(Math.random()* 10), null);
 			}
 			System.out.print("Jagsaaltad " + randomcon + " shirher sanamsargui too nemegdlee \n ------------------------------------------- \n");
 		}
@@ -72,10 +73,18 @@ public class lab1
 		}
 		else if(function == 5) 
 		{
-			Collections.sort(list);
+			//Collections.sort((List<T>) list);
 	        for(int i=0; i<list.size();i++ )
 	        {
-	            list.get(i);
+	            for(int j = list.size() - 1; j>i; j--) 
+	            {
+	            	if (list.get(i) > list.get(j)) 
+	            	{
+	            		int temp = list.get(i);
+	            		list.get(i) = list.get(i);
+	            		list.get(j) = temp;
+	            	}
+	            }
 	        }
 			System.out.print("Jagsaalt bagaas ih ruu erembelegdlee: \n");
 			System.out.println(Arrays.toString(list.toArray()));
